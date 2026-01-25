@@ -1,0 +1,29 @@
+<table class="table-fixed border-collapse border border-gray-400">
+  <thead>
+    <tr>
+      <th class="border border-gray-300 p-2">Pregunta</th>
+      <th class="border border-gray-300 p-2">Tu Respuesta</th>
+      <th class="border border-gray-300 p-2">Respuesta Correcta</th>
+      <th class="border border-gray-300 p-2">Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (result of results; track result) {
+      <tr>
+        <td class="border border-gray-300 p-2">{{ result.getText() }}</td>
+        <td class="border border-gray-300 p-2">{{ result.getUserResponse() }}</td>
+        <td class="border border-gray-300 p-2">{{ result.getResult() }}</td>
+        <td class="border border-gray-300 p-2">
+          @if (result.checkAnswer()) {
+            <span class="text-green-500">Correcto</span>
+          } @else {
+            <span class="text-red-500">Incorrecto</span>
+          }
+        </td>
+      </tr>
+    }
+    @empty {
+      <tr><td colspan="3">No hay resultados disponibles</td></tr>
+    }
+  </tbody>
+</table>

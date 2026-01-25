@@ -1,0 +1,18 @@
+<main class="h-screen flex items-center">
+
+  @switch (currentView) {
+  @case (statusView.INICIO) {
+  <button class="rounded-full m-auto bg-blue-500 hover:bg-blue-700
+  text-white font-bold text-[30px] py-5 px-30 rounded" (click)="onClickIniciar()">
+    Iniciar
+  </button>
+  }
+  @case (statusView.CUESTIONARIO) {
+  <app-question class="m-auto" (finished)="onQuestionsEnd()"></app-question>
+  }
+  @case (statusView.FINALIZADO) {
+    <app-result-board class="m-auto h-screen text-3xl" [results]="results"></app-result-board>
+  }
+  }
+
+</main>
